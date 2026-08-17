@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <title>
+            My video project
+        </title>
+        <style>   
+.video-controls {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.video-controls button {
+    background: black;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+}
+video{
+    margin-top: 20px;
+}
+</style>
+    </head>
+    <body>
+        <video control autoplay muted width="30%">
+            <source src="videos/my-edit.mp4.mp4" type="video/mp4">
+        </video>
+        <br><br>
+        <div class="video-controls">
+
+    <button onclick="backward()">⏪ 10s</button>
+
+    <button onclick="playPause()">▶️ / ⏸️</button>
+
+    <button onclick="forward()">10s ⏩</button>
+
+    <button onclick="muteUnmute()">🔊 / 🔇</button>
+
+        </div>
+        <script>
+    const video = document.querySelector("video");
+
+    function backward() {
+        video.currentTime = Math.max(0, video.currentTime - 10);
+    }
+
+    function playPause() {
+        if (video.paused) {
+            video.play();
+        } else {
+            video.pause();
+        }
+    }
+
+    function forward() {
+        video.currentTime = Math.min(video.duration, video.currentTime + 10);
+    }
+
+    function muteUnmute() {
+        video.muted = !video.muted;
+    }
+</script>
+        <a href="projects.html">
+            <p>Back</p>
+        </a>
+    </body>
+</html>
